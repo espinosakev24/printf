@@ -16,27 +16,8 @@ int _printf(const char *format, ...)
 	{
 	/*if format = %*/
 		if ((format[n] == '%'))
-		{	
-			if ((format[n + 1] == 'c')) /*Verificar que no imprima % ni c*/
-			{
-				if (s == 0)
-				{	format_c_s();	
-				}
-				------------------------
-			n++;
-			}
-			if ((format[n + 1] == 's')) /*Verificar que no imprima % ni s*/
-			{
-				if (s == 0)
-				{	format_s_s();
-				}
-				-------------------------
-			n++;
-			}
-	/*Evaluar si lo que hay despues de % es otro %*/
-			if (format[n + 1] == '%')
-			{	percx2();
-			}
+		{
+			check_perc(format[n], n);
 		}
 
 	/*si format[n] no es % entonces imprimir*/
