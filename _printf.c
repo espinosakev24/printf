@@ -16,18 +16,37 @@ int _printf(const char *format, ...)
 	{
 		s = va_arg(list, format);
 
-		if (format[n] == '%' && format[n + 1] != '\0')
+	/*si formato = % y %c o %s */
+		if ((format[n] == '%') && (format[n + 1] == 'c')) /*Verificar que no imprima ni el % ni la c*/
 		{
-			if ((format[n + 1] == 'c' || format[n + 1] == 's'))
+			if(s == 0)
 			{
-				write(1, &s, strlen(s));
+				write(1, "", 1);   /*Verificar lo que imprime en este caso*/
+                        	return(-1);	/*contar char en cada vuelta*/
 			}
-		}
-		if (format[n] == '%' && format[n + 1] != % && format[n + 1] != '\0')
-		{
-			
+		----------------------------------------------------------------------------------
+		n++;
 		}
 
+		if ((format[n] == '%' && format[n + 1] == 's')) /*Verificar que no imprima ni el % ni la s*/
+		{
+			if (s == 0)
+			{
+				write(1, "(null)", strlen(str);
+                        	return(6);	/*contar char en cada vuelta*/
+			}
+		----------------------------------------------------------------------------------
+		n++;
+		}
+
+	/*Evaluar si lo que hay despues de % es otro %*/
+		if (format[n] == '%' && format[n + 1] == '%')
+		{
+			n++;
+			write(1, format[n], 1);
+		}
+
+	/*si format[n] no es % entonces imprimir*/
 		else
 		{
 		write(1, format[n], 1);
