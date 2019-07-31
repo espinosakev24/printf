@@ -43,10 +43,10 @@ int check_perc(char *format, int *n, va_list list)
 	return (0);
 }
 /**
- * _strlen - check the code for Holberton School students.
- * @s: pointer to holberton
- * Return: Always n.
- */
+* _strlen - check the code for Holberton School students.
+* @s: pointer to holberton
+* Return: Always n.
+*/
 int _strlen(char *s)
 {
 	int n;
@@ -60,27 +60,33 @@ int _strlen(char *s)
 	}
 	return (n);
 }
-/**¬
-* format_c_s - Verify if the function is c and null.¬
+/**
+* format_c_s - Verify if the function is c and null.
 *
-* Return: void.¬
-*/¬
+* Return: void.
+*/
 int format_c_s(void) /*si fn = c && s = null*/
 {
 	write(1, 0, 0);
 	return (-1);
 }
-/**¬¬
-* format_s_s - Verify if the function is s and null.¬¬
-*¬
-* Return: void.¬¬
-*/¬¬
+/**
+* format_s_s - Verify if the function is s and null.
+*
+* Return: void.
+*/
 int format_s_s(void)/*si fn = s && s == null*/
 {
 	write(1, "(null)", 6);
 	return (6);
 }
-
+/**
+* percx2 - Verify when the function have two %.
+* @format: Pointer to the string.
+* @n: The iterator.
+*
+* Return: Integer.
+*/
 int percx2(char *format, int *n)/*Si %% */
 {
 	(*n)++;
