@@ -1,13 +1,15 @@
 #include <stdio.h>
+#include "holberton.h"
 #include <stdarg.h>
+#include <unistd.h>
 /**
  *
  *
  */
-int check_perc(char *format, int *n, va_list list)
+int check_perc(const char *format, int *n, va_list list)
 {
 	char *str;
-	char *escrit;
+	const char *escrit;
 	char s;
 
 	escrit = format;
@@ -67,10 +69,9 @@ int format_s_s(void)/*si fn = s && s == null*/
 	return (6);
 }
 
-int percx2(char *format, int *n)/*Si %% */
+int percx2(const char *format, int *n)/*Si %% */
 {
 	(*n)++;
 	write(1, format + *n, 1);
-	putchar('\n');
 	return (1);
 }

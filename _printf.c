@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <stdarg.h>
 /**
@@ -10,7 +11,6 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int n = 0;
-	char *s;
 	va_start(list, format);
 
 	while (format[n] != '\0')
