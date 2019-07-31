@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else if (format[n] == '%' &&
-		(format[n + 1] != 'c' && format[n + 1] != 's' && format[n + 1] != '%'))
+		(format[n + 1] != 'c' && format[n + 1] != 's' && format[n + 1] != '%') && format[n + 1] != '\0') 
 		{
 			write(1, &format[n], 1);
 		}

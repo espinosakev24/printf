@@ -89,7 +89,6 @@ int format_s_s(void)/*si fn = s && s == null*/
 */
 int percx2(const char *format, int *n)/*Si %% */
 {
-
 	write(1, format + *n, 1);
 	return (1);
 }
