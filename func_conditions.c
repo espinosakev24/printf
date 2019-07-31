@@ -1,40 +1,67 @@
 #include <stdio.h>
+#include <stdarg.h>
 /**
  *
  *
  */
-int check_perc(char *format, int *n)
+int check_perc(char *format, int *n, va_list list)
 {
-	if ((format[n + 1] == 'c')) /*Verificar que no imprima % ni c*/
-	{
+	char *str;
+	char *escrit;
+	char s;
+
+	escrit = format;
+	if ((escrit[*n + 1] == 'c')) /*Verificar que no imprima % ni c*/
+	{	s = va_arg(list, int);
 		if (s == 0)
-		{
-			format_c_s();
+		{	format_c_s();
 		}
-                                ------------------------
-		n++;
-		}
-		if ((format[n + 1] == 's')) /*Verificar que no imprima % ni s*/
-		{
-			if (s == 0)
-			{
-				format_s_s();
-			}
-                                -------------------------
+		else
+		{	write(1, &s, 1);
 			n++;
 		}
+	}
+	else if ((escrit[*n + 1] == 's')) /*Verificar que no imprima % ni s*/
+	{
+		str = va_arg(list, char *);
+		if (str == 0)
+		{	format_s_s();
+		}
+		else
+		{	write(1, str, _strlen(str));
+			n++;
+		}
+	}
         /*Evaluar si lo que hay despues de % es otro %*/
-			if (format[n + 1] == '%')
-			{
-				percx2();
-			}
+	else if (escrit[*n + 1] == '%')
+	{	percx2(format, n);
+	}
+	return (0);
 }
-int format_c_s(char *format, int *n, char *s) /*si fn = c && s = null*/
+/**
+ * _strlen - check the code for Holberton School students.
+ * @s: pointer to holberton
+ * Return: Always n.
+ */
+int _strlen(char *s)
 {
-	write(1, "", 1);
+	int n;
+
+	n = 0;
+
+	while (*s != '\0')
+	{
+		n++;
+		s++;
+	}
+	return (n);
+}
+int format_c_s(void) /*si fn = c && s = null*/
+{
+	write(1, 0, 0);
 	return (-1);
 }
-int format_s_s(char *format, int *n, char *s)/*si fn = s && s == null*/
+int format_s_s(void)/*si fn = s && s == null*/
 {
 	write(1, "(null)", 6);
 	return (6);
@@ -42,7 +69,8 @@ int format_s_s(char *format, int *n, char *s)/*si fn = s && s == null*/
 
 int percx2(char *format, int *n)/*Si %% */
 {
-	*n = *n + 1;
-	write(1, format[*n], 1);
+	(*n)++;
+	write(1, format + *n, 1);
+	putchar('\n');
 	return (1);
 }

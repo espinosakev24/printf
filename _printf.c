@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <stdarg.h>
 /**
  *
  *
@@ -15,14 +16,32 @@ int _printf(const char *format, ...)
 	while (format[n] != '\0')
 	{
 	/*if format = %*/
-		if ((format[n] == '%'))
+		if (format[n] == '%' && format[n + 1] == '%' && format[n + 2] == '%')
 		{
-			check_perc(format[n], n);
+			if (format[n + 3] != 'c' && format[n + 3] != 's' && format[n + 3] != '%')
+			{
+				write(1, &format[n], 1);
+			}
+			else
+			{
+				check_perc(format, &n, list);
+			}
 		}
-
+		else if (format[n] == '%' && (format[n + 1] != 'c' && format[n + 1] != 's' && format[n + 1] != '%'))
+                {
+                        write(1, &format[n], 1);
+                }
+		else if ((format[n] == '%'))
+		{
+			check_perc(format, &n, list);
+			n++;
+		}
 	/*si format[n] no es % entonces imprimir*/
 		else
-		{	write(1, format[n], 1);
+		{	write(1, &format[n], 1);
 		}
 	n++;
+	}
+	return (n);
+	va_end(list);
 }
