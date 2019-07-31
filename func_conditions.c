@@ -67,7 +67,6 @@ int _strlen(char *s)
 */
 int format_c_s(void) /*si fn = c && s = null*/
 {
-	write(1, 0, 0);
 	return (-1);
 }
 /**

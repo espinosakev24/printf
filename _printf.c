@@ -13,8 +13,14 @@ int _printf(const char *format, ...)
 	int n = 0;
 
 	va_start(list, format);
+
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	while (format[n] != '\0')
-	{	/*if format = %*/
+	{
 		if (format[n] == '%' && format[n + 1] == '%' && format[n + 2] == '%')
 		{
 			if (format[n + 3] != 'c' && format[n + 3] != 's' && format[n + 3] != '%')
@@ -25,6 +31,7 @@ int _printf(const char *format, ...)
 			{
 				check_perc(format, &n, list);
 			}
+		/*if format = %*/
 		}
 		else if (format[n] == '%' &&
 		(format[n + 1] != 'c' && format[n + 1] != 's' && format[n + 1] != '%') && format[n + 1] != '\0') 
