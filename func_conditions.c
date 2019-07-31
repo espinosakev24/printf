@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- *
- *
- */
+* check_perc - Function that verify the cases.
+* @format: The string.
+* @n: The iterator.
+* @list: The list of arguments.
+*
+* Return: The value of integer.
+*/
 int check_perc(char *format, int *n, va_list list)
 {
 	char *str;
@@ -56,6 +60,11 @@ int _strlen(char *s)
 	}
 	return (n);
 }
+/**¬
+* format_c_s - Verify if the function is c and null.¬
+*
+* Return: void.¬
+*/¬
 int format_c_s(void) /*si fn = c && s = null*/
 {
 	write(1, 0, 0);
@@ -71,6 +80,5 @@ int percx2(char *format, int *n)/*Si %% */
 {
 	(*n)++;
 	write(1, format + *n, 1);
-	putchar('\n');
 	return (1);
 }
