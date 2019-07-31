@@ -70,6 +70,11 @@ int format_c_s(void) /*si fn = c && s = null*/
 	write(1, 0, 0);
 	return (-1);
 }
+/**¬¬
+* format_s_s - Verify if the function is s and null.¬¬
+*¬
+* Return: void.¬¬
+*/¬¬
 int format_s_s(void)/*si fn = s && s == null*/
 {
 	write(1, "(null)", 6);
