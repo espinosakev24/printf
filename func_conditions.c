@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include "holberton.h"
 #include <stdarg.h>
+#include <unistd.h>
 /**
 * check_perc - Function that verify the cases.
 * @format: The string.
@@ -11,7 +13,7 @@
 int check_perc(const char *format, int *n, va_list list)
 {
 	char *str;
-	char *escrit;
+	const char *escrit;
 	char s;
 
 	escrit = format;

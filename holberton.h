@@ -3,8 +3,9 @@
 #include <stdarg.h>
 int _printf(const char *format, ...);
 int _putchar(char c);
-int format_c_s(char *format, int *n, char *s);
-int format_s_s(char *format, int *n, char *s);
-int percx2(char *format, int *n);
+int check_perc(const char *format, int *n, va_list list);
+int format_c_s(void);
+int format_s_s(void);
+int percx2(const char *format, int *n);
 int _strlen(char *s);
 #endif
