@@ -3,8 +3,11 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
- *
- *
+ * check_perc - If format == % this function checks
+ * @format: format of the funciton
+ * @n: iterator
+ * @list: arguments
+ * Return: 0
  */
 int check_perc(const char *format, int *n, va_list list)
 {
@@ -34,8 +37,7 @@ int check_perc(const char *format, int *n, va_list list)
 			n++;
 		}
 	}
-        /*Evaluar si lo que hay despues de % es otro %*/
-	else if (escrit[*n + 1] == '%')
+	else if (escrit[*n + 1] == '%') /*despues de % es otro %*/
 	{	percx2(format, n);
 	}
 	return (0);
@@ -58,17 +60,33 @@ int _strlen(char *s)
 	}
 	return (n);
 }
+/**
+* format_c_s - Verify if the function is c and null.
+*
+* Return: void.
+*/
 int format_c_s(void) /*si fn = c && s = null*/
 {
 	write(1, 0, 0);
 	return (-1);
 }
+/**
+* format_s_s - Verify if the function is s and null.
+*
+* Return: void.
+*/
 int format_s_s(void)/*si fn = s && s == null*/
 {
 	write(1, "(null)", 6);
 	return (6);
 }
-
+/**
+* percx2 - Verify when the function have two %.
+* @format: Pointer to the string.
+* @n: The iterator.
+*
+* Return: Integer.
+*/
 int percx2(const char *format, int *n)/*Si %% */
 {
 	(*n)++;
