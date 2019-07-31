@@ -8,7 +8,7 @@
 *
 * Return: The value of integer.
 */
-int check_perc(char *format, int *n, va_list list)
+int check_perc(const char *format, int *n, va_list list)
 {
 	char *str;
 	char *escrit;
@@ -87,7 +87,7 @@ int format_s_s(void)/*si fn = s && s == null*/
 *
 * Return: Integer.
 */
-int percx2(char *format, int *n)/*Si %% */
+int percx2(const char *format, int *n)/*Si %% */
 {
 	(*n)++;
 	write(1, format + *n, 1);
