@@ -1,0 +1,39 @@
+.TH man 3 "30 June 2019" "1.00" "_printf man page"
+.SH NAME
+.B _printf
+
+.SH SYNOPSIS
+.B #include "holberton.h"
+
+.B int _printf(const char *format, ...)
+
+.SH DESCRIPTION
+.B _printf()
+Prints (standard output) with the format string that specifies what arguments are have for the output. 
+.SH Return value
+If the return is successful the function return the number of characters printed.
+If an output error is encountered, a negative value is returned.
+
+.SH The specific type of arguments
+A character that specifies the type of conversion:
+.TP
+.BR c
+The type char, the function converted the argument int to an char, then is printed.
+.TP
+.B s
+The type of char * argument in the function is read like an array of characters
+.TP
+.B %
+If the argument is '%' the function validate what will be the next character and printed if there are not an validate argument. 
+.SH EXAMPLE
+Print the string:
+
+#include "holberton.h"
+
+_printf("Hola %s, "mundo");
+.SH SEE ALSO
+.I printf(3)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Kevin Espinosa, Albéniz Martínez
